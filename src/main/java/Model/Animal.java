@@ -2,14 +2,9 @@ package Model;
 
 public class Animal {
 
-    private String nm_animal;
-    private String raca;
+    private String nm_animal,raca,porte,cpf,contato,endereco,nm_responsavel;
     private Double peso;
-    private String porte;
-    private String nm_responsavel;
-    private String cpf;
-    private String contato;
-    private String endereco;
+
 
     public Animal(String nm_animal, String raca, Double peso, String porte, String nm_responsavel, String cpf, String contato, String endereco) {
         this.nm_animal = nm_animal;

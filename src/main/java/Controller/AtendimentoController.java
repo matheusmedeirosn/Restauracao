@@ -1,12 +1,11 @@
 package Controller;
 
 import DataBase.AtendimentoDataBase;
+import Model.FormatacaoDeDados;
 import Model.Animal;
 import Model.Atendimento;
 import Model.Prestador;
-import Repository.FormatacaoDados;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class AtendimentoController {
@@ -16,6 +15,7 @@ public class AtendimentoController {
         Scanner sc = new Scanner(System.in);
         Atendimento atd = new Atendimento();
         Prestador prest=new Prestador();
+        FormatacaoDeDados format = new FormatacaoDeDados();
         int tamanhoArrayList = AtendimentoDataBase.atendimentoArrayList.size();
         int sequenceAtendimento=tamanhoArrayList+1;
         String nomeCao;
@@ -41,8 +41,8 @@ public class AtendimentoController {
                 System.out.println("Como você descreve o atendimento em questão? ");
                 atd.setDs_servico(sc.next());
 
-                System.out.println("o código do seu atendimento é: ");
-                FormatacaoDados.numeroAtendimento(atd.getCd_atendimento());
+                System.out.println("o código do seu atendimento é: "+sequenceAtendimento);
+                format.numeroatendimento(sequenceAtendimento);
 
                 AtendimentoDataBase.adicionarAtendimento(atd);
                 atd=new Atendimento();
