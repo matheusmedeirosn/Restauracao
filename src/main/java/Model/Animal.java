@@ -4,14 +4,14 @@ public class Animal {
 
     private String nm_animal;
     private String raca;
-    private int peso;
+    private Double peso;
     private String porte;
     private String nm_responsavel;
-    private int cpf;
-    private int contato;
+    private String cpf;
+    private String contato;
     private String endereco;
 
-    public Animal(String nm_animal, String raca, int peso, String porte, String nm_responsavel, int cpf, int contato, String endereco) {
+    public Animal(String nm_animal, String raca, Double peso, String porte, String nm_responsavel, String cpf, String contato, String endereco) {
         this.nm_animal = nm_animal;
         this.raca = raca;
         this.peso = peso;
@@ -42,11 +42,11 @@ public class Animal {
         this.raca = raca;
     }
 
-    public int getPeso() {
+    public Double getPeso() {
         return peso;
     }
 
-    public void setPeso(int peso) {
+    public void setPeso(Double peso) {
         this.peso = peso;
     }
 
@@ -66,19 +66,19 @@ public class Animal {
         this.nm_responsavel = nm_responsavel;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getContato() {
+    public String getContato() {
         return contato;
     }
 
-    public void setContato(int contato) {
+    public void setContato(String contato) {
         this.contato = contato;
     }
 

@@ -6,14 +6,11 @@ import Repository.FormatacaoDados;
 
 import java.util.Scanner;
 
+import static com.sun.tools.javac.util.StringUtils.toUpperCase;
+
 public class AnimalController extends FormatacaoDados {
 
     public static void inserirCao(){
-
-        String nome, raca, endereco, nm_responsavel, cpf ;
-        int peso, contato;
-        char porte;
-
 
         Scanner sc = new Scanner(System.in);
         Animal animal = new Animal();
@@ -25,7 +22,8 @@ public class AnimalController extends FormatacaoDados {
         animal.setRaca(sc.next());
 
         System.out.println("Peso do cão: ");
-        animal.setPeso(sc.nextInt());
+        animal.setPeso(sc.nextDouble());
+        FormatacaoDados.converterPeso(animal.getPeso());
 
         System.out.println("Porte do animal: ");
         animal.setPorte(sc.next());
@@ -34,24 +32,18 @@ public class AnimalController extends FormatacaoDados {
         animal.setNm_responsavel(sc.next());
 
         System.out.println("Cpf do responsável: ");
-        animal.setCpf(sc.nextInt());
+        animal.setCpf(sc.next());
+        FormatacaoDados.converterCPF(animal.getCpf());
 
         System.out.println("Contato do responsável: ");
-        animal.setContato(sc.nextInt());
+        animal.setContato(sc.next());
+        FormatacaoDados.converterTelefone(animal.getContato());
 
         System.out.println("Endereço do responsável: ");
         animal.setEndereco(sc.next());
 
         AtendimentoDataBase.adicionarAnimal(animal);
         animal= new Animal();
-    }
-
-    public void imprimirInformacoes(int numero, String cpf, double peso, String telefone){
-        numeroAtendimento(numero);
-        converterCPF(cpf);
-        converterPeso(peso);
-        converterTelefone(telefone);
-
     }
 
     public static void pesquisarAnimal(){
@@ -92,4 +84,50 @@ public class AnimalController extends FormatacaoDados {
         }
     }
 
+    public static void editarAnimal(){
+
+     /*   String nomeCao;
+        String respostaUsuario;
+        Scanner sc=new Scanner(System.in);
+
+        System.out.println("Informe o nome do cachorro: ");
+        nomeCao=sc.next();
+
+        for(Animal x : AtendimentoDataBase.animalArrayList) {
+            if (x.getNm_animal().equals(nomeCao)) {
+
+                System.out.println("Digite se você deseja editar o peso, contato ou endereço de cadastro.\n" +
+                        "(APENAS UM POR VEZ) ");
+                respostaUsuario=sc.next();
+
+                if(respostaUsuario.equals("PESO")||respostaUsuario.equals("peso")){
+                    x.setPeso(null);
+                    System.out.println("Informe o novo peso: ");
+                    double novoPeso = sc.nextInt();
+                    x.setPeso(novoPeso);
+                    FormatacaoDados.converterPeso(x.getPeso());
+
+                }
+                else if(respostaUsuario=="CONTATO"||respostaUsuario=="contato"){
+                    x.setContato(null);
+                    System.out.println("Informe o novo contato: ");
+                    String novoContato = sc.next();
+                    x.setContato(novoContato);
+                    FormatacaoDados.converterTelefone(x.getContato());
+
+                }
+                else if(respostaUsuario=="ENDERECO"||respostaUsuario=="endereco"){
+                    x.setEndereco(null);
+                    System.out.println("Informe o novo endereço: ");
+                    String novoEndereco = sc.next();
+                    x.setEndereco(novoEndereco);
+                }
+            }
+            else{
+
+            }
+        }*/
+
+
+    }
 }

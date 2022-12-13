@@ -4,6 +4,7 @@ import DataBase.AtendimentoDataBase;
 import Model.Animal;
 import Model.Atendimento;
 import Model.Prestador;
+import Repository.FormatacaoDados;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -15,23 +16,18 @@ public class AtendimentoController {
         Scanner sc = new Scanner(System.in);
         Atendimento atd = new Atendimento();
         Prestador prest=new Prestador();
-        Random random = new Random();
+        int tamanhoArrayList = AtendimentoDataBase.atendimentoArrayList.size();
+        int sequenceAtendimento=tamanhoArrayList+1;
         String nomeCao;
 
-        int cd_atendimento= random.nextInt(100);
+        int cd_atendimento= sequenceAtendimento;
         atd.setCd_atendimento(cd_atendimento);
-        Animal animal;
-        Prestador prestador;
-        String tp_servico;
-        String ds_servico;
 
         System.out.println("Informe o nome do cão: ");
         nomeCao=sc.next();
 
         for(Animal x : AtendimentoDataBase.animalArrayList){
             if(x.getNm_animal().equals(nomeCao)){
-
-                String especialidade;
 
                 System.out.println("Informe o nome do prestador responsavel pelo atendimento: ");
                 prest.setNm_prestador(sc.next());
@@ -45,7 +41,8 @@ public class AtendimentoController {
                 System.out.println("Como você descreve o atendimento em questão? ");
                 atd.setDs_servico(sc.next());
 
-                System.out.println("o código do seu atendimento é: " + atd.getCd_atendimento());
+                System.out.println("o código do seu atendimento é: ");
+                FormatacaoDados.numeroAtendimento(atd.getCd_atendimento());
 
                 AtendimentoDataBase.adicionarAtendimento(atd);
                 atd=new Atendimento();
