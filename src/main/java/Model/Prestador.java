@@ -10,6 +10,7 @@ public class Prestador {
         this.especialidade = especialidade;
     }
 
+
     public Prestador() {
 
     }

@@ -15,31 +15,31 @@ public class AnimalController extends PadronizacaoPeso {
         Animal animal = new Animal();
         FormatacaoDeDados formatDados = new FormatacaoDeDados();
 
-        System.out.println("Nome do animal: ");
+        System.out.print("Nome do animal: ");
         animal.setNm_animal(sc.next());
 
-        System.out.println("Raça do animal: ");
+        System.out.print("Raça do animal: ");
         animal.setRaca(sc.next());
 
-        System.out.println("Peso do cão: ");
+        System.out.print("Peso do cão: ");
         animal.setPeso(sc.nextDouble());
         PadronizacaoPeso.converterPeso(animal.getPeso());
 
-        System.out.println("Porte do animal: ");
+        System.out.print("Porte do animal: ");
         animal.setPorte(sc.next());
 
-        System.out.println("Nome do responsavel: ");
+        System.out.print("Nome do responsavel: ");
         animal.setNm_responsavel(sc.next());
 
-        System.out.println("Cpf do responsável: ");
+        System.out.print("Cpf do responsável: ");
         animal.setCpf(sc.next());
         System.out.println(formatDados.converterCPF(animal.getCpf()));
 
-        System.out.println("Contato do responsável: ");
+        System.out.print("Contato do responsável: ");
         animal.setContato(sc.next());
         System.out.println(formatDados.converteTelefone(animal.getContato()));
 
-        System.out.println("Endereço do responsável: ");
+        System.out.print("Endereço do responsável: ");
         animal.setEndereco(sc.next());
 
         AtendimentoDataBase.adicionarAnimal(animal);
@@ -51,14 +51,14 @@ public class AnimalController extends PadronizacaoPeso {
         String nomeCao;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Informe o nome do cachorro:");
+        System.out.print("\nInforme o nome do cachorro:");
         nomeCao = sc.next();
 
         for (Animal x : AtendimentoDataBase.animalArrayList) {
             if (x.getNm_animal().equals(nomeCao)) {
-                System.out.println("Animal " + x.toString() + " foi encontrado");
+                System.out.println("\nAnimal " + x.toString() + " foi encontrado\n");
             } else {
-                System.out.println("Animal não encontrado");
+                System.out.println("\n***Animal não encontrado***\n");
             }
             break;
         }
@@ -69,7 +69,7 @@ public class AnimalController extends PadronizacaoPeso {
         String nomeCao;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Informe o nome do cachorro: ");
+        System.out.print("\nInforme o nome do cachorro: \n");
         nomeCao = sc.next();
 
         for (Animal x : AtendimentoDataBase.animalArrayList) {
@@ -78,7 +78,7 @@ public class AnimalController extends PadronizacaoPeso {
                 System.out.println("Animal " + x.toString() + " excluido com sucesso");
                 return;
             } else {
-                System.out.println("animal não encontrado");
+                System.out.println("\n***Animal não encontrado***\n");
             }
         }
     }
@@ -96,7 +96,7 @@ public class AnimalController extends PadronizacaoPeso {
         for (Animal x : AtendimentoDataBase.animalArrayList) {
             if (x.getNm_animal().equals(nomeCao)) {
 
-                System.out.println("Voce deseja editar qual campo:\n" +
+                System.out.print("Voce deseja editar qual campo:\n" +
                         "1-Peso\n" +
                         "2-Contato\n" +
                         "3-Endereço de cadastro.\n" +
